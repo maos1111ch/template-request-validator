@@ -1,0 +1,10 @@
+createExample:
+  name: createExample
+  handler: src/api/example/index.handler
+  events:
+    - http:
+        path: /example
+        method: POST
+        request: 
+          schemas:
+            application/json: post-create-example

@@ -1,0 +1,21 @@
+service: name
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+  apiGateway:
+    request:
+      schemas:
+        post-create-example:
+          name: CreateExampleModel
+          schema: ${file(src/models/example.json)}
+          description: "A model validation for creating examples"
+ 
+functions:
+  - ${file(src/resources/api.yml)}
+  
+resources:
+  - ${file(src/resources/example.yml)}

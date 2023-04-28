@@ -1,0 +1,35 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "ExampleInputModel",
+    "type": "object",
+    "properties": {
+        "value1" : { 
+            "type": "string", 
+            "description": "description value1"
+        },
+        "value2": {
+            "type": "array",
+            "items": { 
+                "$ref": "https://apigateway.amazonaws.com/restapis/{restapi_id}/models/{model_name}"
+            }
+        },
+        "values": {
+            "type": "array",
+            "items": { 
+                "$ref": "#/definitions/Value"
+            }
+        }
+    },
+    "definitions": { 
+        "Value" : {
+          "type": "object",
+          "properties": {
+            "aux1": { "type": "string" },
+            "aux2": { "type": "string" }
+          }
+        }
+    },
+    "required": ["value1", "value2"]
+}
+
+
